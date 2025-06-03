@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const results = [];
     const questions = document.querySelectorAll('fieldset');
     questions.forEach((question, index) => {
-      const selectedOption = question.querySelector('input[type="radio"]:checked');
+      const selectedOption = question.querySelector('input[type="radio"]:checked'); 
       if (selectedOption) {
         const className = selectedOption.className;
         const value = selectedOption.value;
@@ -19,7 +19,66 @@ document.addEventListener('DOMContentLoaded', function() {
         }));
       }
     });
-    console.log(results);
+    var tdmc_score = "";
+    var tdc_score = "";
+    var tec_score = "";
+    var trc_score = "";
+    var tfic_score = "";
+
+    results.forEach((result) => {
+      let current_class = result.className;
+      let current_value = parseInt(result.value);
+      switch (current_class) {
+        case "tdmc":
+          tdmc_score += current_value;
+          break;
+        case "tdc":
+          tdc_score += current_value;
+          break;
+        case "tec":
+          tec_score += current_value;
+          break;
+        case "trc":
+          trc_score += current_value;
+          break;
+        case "tfic":
+          tfic_score += current_value;
+          break;
+        default:
+          console.error("Unknown class:", current_class);
+      }
+    });
+    //Print the maximum score for each class and the current score for each class
+    console.log(
+      "Maximum Test Data Management Capability Score:",
+      maxCapabilityScore.TDMC,
+    );
+    console.log("Your score:", tdmc_score);
+    console.log(
+      "Maximum Test Design Capability Score:",
+      maxCapabilityScore.TDC,
+    );
+    console.log("Your score:", tdc_score);
+    console.log(
+      "Maximum Test Execution Capability Score:",
+      maxCapabilityScore.TEC,
+    );
+    console.log("Your score:", tec_score);
+    console.log(
+      "Maximum Test Reporting Capability Score:",
+      maxCapabilityScore.TRC,
+    );
+    console.log("Your score:", trc_score);
+    console.log(
+      "Maximum Test Framework Integration Capability Score:",
+      maxCapabilityScore.TFIC,
+    );
+    console.log("Your score:", tfic_score);
+    console.log("Overall TAFM Index:", 100);
+    console.log(
+      "Your TAFMIndex:",
+      tdmc_score + tdc_score + tec_score + trc_score + tfic_score,
+    );    
   });
 });
 
