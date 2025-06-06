@@ -1,6 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Get the submit button by its ID
   const submitButton = document.getElementById('btnSubmit');
+  const maxCapabilityScore = {
+    TDC: 41, //Test design capability
+    TDMC: 13, //Test data management capability
+    TEC: 17, //Test execution capability
+    TRC: 16, // Test reporting capability
+    TFIC: 8, //Test Framework Integration capability
+  };
   
   // Add a click event listener to the submit button
   submitButton.addEventListener('click', function (event) {
@@ -19,13 +26,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }));
       }
     });
-    var tdmc_score = "";
-    var tdc_score = "";
-    var tec_score = "";
-    var trc_score = "";
-    var tfic_score = "";
+    var tdmc_score = 0;
+    var tdc_score = 0;
+    var tec_score = 0;
+    var trc_score = 0;
+    var tfic_score = 0;
 
     results.forEach((result) => {
+      console.log(result)
       let current_class = result.className;
       let current_value = parseInt(result.value);
       switch (current_class) {
