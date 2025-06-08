@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
       "Your TAFMIndex:",
       tdmc_score + tdc_score + tec_score + trc_score + tfic_score,
     );    
+    document.getElementById('finalResult').textContent = "Your TAFMIndex: " + (tdmc_score + tdc_score + tec_score + trc_score + tfic_score);
   });
 });
 
