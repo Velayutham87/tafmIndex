@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var tfic_score = 0;
 
     results.forEach((result) => {
-      console.log(result)
       let current_class = result.className;
       let current_value = parseInt(result.value);
       switch (current_class) {
@@ -57,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     //Print the maximum score for each class and the current score for each class
-    console.log(
+   /*  console.log(
       "Maximum Test Data Management Capability Score:",
       maxCapabilityScore.TDMC,
     );
@@ -86,7 +85,9 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(
       "Your TAFMIndex:",
       tdmc_score + tdc_score + tec_score + trc_score + tfic_score,
-    );    
+    ); */
+    document.getElementById('finalResult').textContent =
+      "Your TAFM Index is: " + (tdmc_score + tdc_score + tec_score + trc_score + tfic_score) + " out of 100.";
   });
 });
 
