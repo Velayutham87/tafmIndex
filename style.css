@@ -1,3 +1,15 @@
 html{
       font-family: 'Courier New', Courier, monospace;
 }
+
+h4{
+      text-align: left;
+      font-family: 'helvetica', sans-serif;
+      font-style: italic;
+}
+
+h1{
+      text-align: center;
+      font-family: 'helvetica', sans-serif;
+      color: darkblue;
+}

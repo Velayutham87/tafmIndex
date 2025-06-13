@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Get the submit button by its ID
   const submitButton = document.getElementById('btnSubmit');
+  const tafmModal = new bootstrap.Modal(document.getElementById('tafmIndexModal'));
   const maxCapabilityScore = {
     TDC: 41, //Test design capability
     TDMC: 13, //Test data management capability
@@ -88,6 +89,9 @@ document.addEventListener('DOMContentLoaded', function() {
     ); */
     document.getElementById('finalResult').textContent =
       "Your TAFM Index is: " + (tdmc_score + tdc_score + tec_score + trc_score + tfic_score) + " out of 100.";
+    
+    // Show the modal
+    tafmModal.show();
   });
 });
 
