@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Get the submit button by its ID
   const submitButton = document.getElementById('btnSubmit');
+  const clearAllButton = document.getElementById('btnClearAll');
   const tafmModal = new bootstrap.Modal(document.getElementById('tafmIndexModal'));
   const maxCapabilityScore = {
     TDC: 41, //Test design capability
@@ -93,6 +94,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Show the modal
     tafmModal.show();
   });
+
+  clearAllButton.addEventListener('click', function () {
+    // Clear all radio buttons
+    const radioButtons = document.querySelectorAll('input[type="radio"]');
+    radioButtons.forEach((radio) => {
+      radio.checked = false;
+    });
+    // Hide the modal
+    //tafmModal.hide();
+  });
 });
 
 
+//next development
+//upon closing modal, clear all selections and goto home page
