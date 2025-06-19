@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Get the submit button by its ID
   const submitButton = document.getElementById('btnSubmit');
+  const clearAllButton = document.getElementById('btnClearAll');
+  const tafmModal = new bootstrap.Modal(document.getElementById('tafmIndexModal'));
   const maxCapabilityScore = {
     TDC: 41, //Test design capability
     TDMC: 13, //Test data management capability
@@ -33,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var tfic_score = 0;
 
     results.forEach((result) => {
-      console.log(result)
       let current_class = result.className;
       let current_value = parseInt(result.value);
       switch (current_class) {
@@ -57,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     //Print the maximum score for each class and the current score for each class
-    console.log(
+   /*  console.log(
       "Maximum Test Data Management Capability Score:",
       maxCapabilityScore.TDMC,
     );
@@ -86,8 +87,26 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(
       "Your TAFMIndex:",
       tdmc_score + tdc_score + tec_score + trc_score + tfic_score,
-    );    
+    ); */
+    document.getElementById('finalResult').textContent =
+      "Your TAFM Index is: " + (tdmc_score + tdc_score + tec_score + trc_score + tfic_score) + " out of 100.";
+    
+    // Show the modal
+    tafmModal.show();
+  });
+
+  clearAllButton.addEventListener('click', function () {
+    // Clear all radio buttons
+    const radioButtons = document.querySelectorAll('input[type="radio"]');
+    radioButtons.forEach((radio) => {
+      radio.checked = false;
+    });
+    
+    // Navigate to page 1
+    document.getElementById('pills-page1-tab').click();
   });
 });
 
 
+//next development
+//upon closing modal, clear all selections and goto home page
