@@ -11,7 +11,10 @@
 
 <body>
   <div class="container">
-    <h1>TEST AUTOMATION FRAMEWORK MATURITY INDEX CALCULATOR</h1>
+    <div class="d-flex align-items-center mb-4">
+      <img src="logo/tafmindex-logo.png" alt="TAFM Index Logo" style="height: 150px; margin-right: 20px;">
+      <h1>TEST AUTOMATION FRAMEWORK MATURITY INDEX CALCULATOR</h1>
+    </div>
     <br>
     <h4>Answer the below questionnaire and click submit, to know your Test Automation Framework Maturity Index.</h4>
     <br>
@@ -30,37 +33,32 @@
       <div class="tab-content" id="pills-tabContent">
         <!-- Page 1 -->
         <div class="tab-pane fade show active" id="pills-page1" role="tabpanel">
-          <!-- Questions 1-8 rows -->
-          <!-- Row 1 -->
           <div class="row">
+            <!-- Left Column - Questions 1-4 -->
             <div class="col-md-6">
+              <!-- Question 1 -->
               <fieldset>
                 <legend>1. Does your framework support Test data parameterization?</legend>
                 <label for="q1-yes"><input id="q1-yes" type="radio" class="tdmc" name="q1" value="8" required /> Yes</label>
                 <label for="q1-no"><input id="q1-no" type="radio" class="tdmc" name="q1" value="0" required /> No</label>
               </fieldset>
-            </div>
-            <div class="col-md-6">
+              <br>
+              <!-- Question 2 -->
               <fieldset>
                 <legend>2. Does your framework support test data generation (e.g., through API calls, SQL calls, or random
                   data)?</legend>
                 <label for="q2-yes"><input id="q2-yes" type="radio" class="tdmc" name="q2" value="5" required /> Yes</label>
                 <label for="q2-no"><input id="q2-no" type="radio" class="tdmc" name="q2" value="0" required /> No</label>
               </fieldset>
-            </div>
-          </div>
-          <br>
-
-          <!-- Row 2 -->
-          <div class="row">
-            <div class="col-md-6">
+              <br>
+              <!-- Question 3 -->
               <fieldset>
                 <legend>3. Does your framework contain reusable utilities?</legend>
                 <label for="q3-yes"><input id="q3-yes" type="radio" class="tdc" name="q3" value="8" required /> Yes</label>
                 <label for="q3-no"><input id="q3-no" type="radio" class="tdc" name="q3" value="0" required /> No</label>
               </fieldset>
-            </div>
-            <div class="col-md-6">
+              <br>
+              <!-- Question 4 -->
               <fieldset>
                 <legend>4. Does your framework support report logging to HTML, JUnit, TestNG, Extent, Mochawesome, or other
                   formats?</legend>
@@ -68,38 +66,31 @@
                 <label for="q4-no"><input id="q4-no" type="radio" class="trc" name="q4" value="0" required /> No</label>
               </fieldset>
             </div>
-          </div>
-          <br>
 
-          <!-- Row 3 -->
-          <div class="row">
+            <!-- Right Column - Questions 5-8 -->
             <div class="col-md-6">
+              <!-- Question 5 -->
               <fieldset>
                 <legend>5. Does your framework have provisions for API mocking?</legend>
                 <label for="q5-yes"><input id="q5-yes" type="radio" class="tdc" name="q5" value="3" required /> Yes</label>
                 <label for="q5-no"><input id="q5-no" type="radio" class="tdc" name="q5" value="0" required /> No</label>
               </fieldset>
-            </div>
-            <div class="col-md-6">
+              <br>
+              <!-- Question 6 -->
               <fieldset>
                 <legend>6. Does your framework contain configurable retry mechanisms?</legend>
                 <label for="q6-yes"><input id="q6-yes" type="radio" class="tdc" name="q6" value="3" required /> Yes</label>
                 <label for="q6-no"><input id="q6-no" type="radio" class="tdc" name="q6" value="0" required /> No</label>
               </fieldset>
-            </div>
-          </div>
-          <br>
-
-          <!-- Row 4 -->
-          <div class="row">
-            <div class="col-md-6">
+              <br>
+              <!-- Question 7 -->
               <fieldset>
                 <legend>7. Does your framework have provisions to manage test evidences like screenshots, videos, etc.?</legend>
                 <label for="q7-yes"><input id="q7-yes" type="radio" class="trc" name="q7" value="8" required /> Yes</label>
                 <label for="q7-no"><input id="q7-no" type="radio" class="trc" name="q7" value="0" required /> No</label>
               </fieldset>
-            </div>
-            <div class="col-md-6">
+              <br>
+              <!-- Question 8 -->
               <fieldset>
                 <legend>8. Does your framework have strict code quality control mechanisms in place (e.g., linters)?</legend>
                 <label for="q8-yes"><input id="q8-yes" type="radio" class="tdc" name="q8" value="8" required /> Yes</label>
@@ -116,74 +107,62 @@
 
         <!-- Page 2 -->
         <div class="tab-pane fade" id="pills-page2" role="tabpanel">
-          <!-- Questions 9-16 rows -->
-          <!-- Row 5 -->
           <div class="row">
+            <!-- Left Column - Questions 9-12 -->
             <div class="col-md-6">
+              <!-- Question 9 -->
               <fieldset>
                 <legend>9. Does your framework have provisions to encrypt credentials?</legend>
                 <label for="q9-yes"><input id="q9-yes" type="radio" class="tdc" name="q9" value="8" required /> Yes</label>
                 <label for="q9-no"><input id="q9-no" type="radio" class="tdc" name="q9" value="0" required /> No</label>
               </fieldset>
-            </div>
-            <div class="col-md-6">
+              <br>
+              <!-- Question 10 -->
               <fieldset>
                 <legend>10. Is your framework configurable to handle multiple environments on the fly?</legend>
                 <label for="q10-yes"><input id="q10-yes" type="radio" class="tec" name="q10" value="8" required /> Yes</label>
                 <label for="q10-no"><input id="q10-no" type="radio" class="tec" name="q10" value="0" required /> No</label>
               </fieldset>
-            </div>
-          </div>
-          <br>
-
-          <!-- Row 6 -->
-          <div class="row">
-            <div class="col-md-6">
+              <br>
+              <!-- Question 11 -->
               <fieldset>
                 <legend>11. Do you version control your test automation code (e.g., GitHub, Bitbucket, etc.)?</legend>
                 <label for="q11-yes"><input id="q11-yes" type="radio" class="tdc" name="q11" value="8" required /> Yes</label>
                 <label for="q11-no"><input id="q11-no" type="radio" class="tdc" name="q11" value="0" required /> No</label>
               </fieldset>
-            </div>
-            <div class="col-md-6">
+              <br>
+              <!-- Question 12 -->
               <fieldset>
                 <legend>12. Is your framework configurable to handle cross-browser testing on the fly?</legend>
                 <label for="q12-yes"><input id="q12-yes" type="radio" class="tec" name="q12" value="6" required /> Yes</label>
                 <label for="q12-no"><input id="q12-no" type="radio" class="tec" name="q12" value="0" required /> No</label>
               </fieldset>
             </div>
-          </div>
-          <br>
 
-          <!-- Row 7 -->
-          <div class="row">
+            <!-- Right Column - Questions 13-16 -->
             <div class="col-md-6">
+              <!-- Question 13 -->
               <fieldset>
                 <legend>13. Is your framework capable of running on parallel agents without data interdependency?</legend>
                 <label for="q13-yes"><input id="q13-yes" type="radio" class="tec" name="q13" value="3" required /> Yes</label>
                 <label for="q13-no"><input id="q13-no" type="radio" class="tec" name="q13" value="0" required /> No</label>
               </fieldset>
-            </div>
-            <div class="col-md-6">
+              <br>
+              <!-- Question 14 -->
               <fieldset>
                 <legend>14. Is your framework CI/CD ready?</legend>
                 <label for="q14-yes"><input id="q14-yes" type="radio" class="tfic" name="q14" value="8" required /> Yes</label>
                 <label for="q14-no"><input id="q14-no" type="radio" class="tfic" name="q14" value="0" required /> No</label>
               </fieldset>
-            </div>
-          </div>
-          <br>
-
-          <!-- Row 8 -->
-          <div class="row">
-            <div class="col-md-6">
+              <br>
+              <!-- Question 15 -->
               <fieldset>
                 <legend>15. Do you have detailed documentation of your framework?</legend>
                 <label for="q15-yes"><input id="q15-yes" type="radio" class="tfic" name="q15" value="5" required /> Yes</label>
                 <label for="q15-no"><input id="q15-no" type="radio" class="tfic" name="q15" value="0" required /> No</label>
               </fieldset>
-            </div>
-            <div class="col-md-6">
+              <br>
+              <!-- Question 16 -->
               <fieldset>
                 <legend>16. Does your framework have self-healing capability?</legend>
                 <label for="q16-yes"><input id="q16-yes" type="radio" class="tfic" name="q16" value="3" required /> Yes</label>
@@ -213,7 +192,10 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p id="finalResult"> Here's your TAFM Index score</p>
+          <div class="d-flex align-items-center">
+            <img src="logo/tafmindex-logo.png" alt="TAFM Index Logo" style="height: 50px; margin-right: 20px;">
+            <p class="mb-0" id="finalResult">Here's your TAFM Index score</p>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

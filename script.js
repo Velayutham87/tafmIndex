@@ -101,8 +101,9 @@ document.addEventListener('DOMContentLoaded', function() {
     radioButtons.forEach((radio) => {
       radio.checked = false;
     });
-    // Hide the modal
-    //tafmModal.hide();
+    
+    // Navigate to page 1
+    document.getElementById('pills-page1-tab').click();
   });
 });
 
