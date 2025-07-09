@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const submitButton = document.getElementById('btnSubmit');
   const clearAllButton = document.getElementById('btnClearAll');
   const tafmModal = new bootstrap.Modal(document.getElementById('tafmIndexModal'));
+  const showMoreDetails = document.getElementById('btnShowMoreDetails');
   const maxCapabilityScore = {
     TDC: 41, //Test design capability
     TDMC: 13, //Test data management capability
@@ -10,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     TRC: 16, // Test reporting capability
     TFIC: 8, //Test Framework Integration capability
   };
+
+  let capabilityWiseScores = null; // Store latest scores here
   
   // Add a click event listener to the submit button
   submitButton.addEventListener('click', function (event) {
@@ -57,40 +60,19 @@ document.addEventListener('DOMContentLoaded', function() {
           console.error("Unknown class:", current_class);
       }
     });
-    //Print the maximum score for each class and the current score for each class
-   /*  console.log(
-      "Maximum Test Data Management Capability Score:",
-      maxCapabilityScore.TDMC,
-    );
-    console.log("Your score:", tdmc_score);
-    console.log(
-      "Maximum Test Design Capability Score:",
-      maxCapabilityScore.TDC,
-    );
-    console.log("Your score:", tdc_score);
-    console.log(
-      "Maximum Test Execution Capability Score:",
-      maxCapabilityScore.TEC,
-    );
-    console.log("Your score:", tec_score);
-    console.log(
-      "Maximum Test Reporting Capability Score:",
-      maxCapabilityScore.TRC,
-    );
-    console.log("Your score:", trc_score);
-    console.log(
-      "Maximum Test Framework Integration Capability Score:",
-      maxCapabilityScore.TFIC,
-    );
-    console.log("Your score:", tfic_score);
-    console.log("Overall TAFM Index:", 100);
-    console.log(
-      "Your TAFMIndex:",
-      tdmc_score + tdc_score + tec_score + trc_score + tfic_score,
-    ); */
+
     document.getElementById('finalResult').textContent =
       "Your TAFM Index is: " + (tdmc_score + tdc_score + tec_score + trc_score + tfic_score) + " out of 100.";
     
+    // Store the scores
+    capabilityWiseScores = {
+      tdmc_score,
+      tdc_score,
+      tec_score,
+      trc_score,
+      tfic_score,
+    };
+  
     // Show the modal
     tafmModal.show();
   });
@@ -105,8 +87,35 @@ document.addEventListener('DOMContentLoaded', function() {
     // Navigate to page 1
     document.getElementById('pills-page1-tab').click();
   });
+
+  showMoreDetails.addEventListener('click', function () {
+    // Use the stored scores
+    if (!capabilityWiseScores) {
+      console.error("No scores available. Please submit first.");
+      return;
+    }
+    const { tdmc_score, tdc_score, tec_score, trc_score, tfic_score } = capabilityWiseScores;
+    // Prepare details as HTML
+    const detailsHtml = `
+      <hr>
+      <div class="text-start">
+        <strong>Test Data Management Capability:</strong> ${tdmc_score} / ${maxCapabilityScore.TDMC} 
+        (${((tdmc_score / maxCapabilityScore.TDMC) * 100).toFixed(1)}%)<br>
+        <strong>Test Design Capability:</strong> ${tdc_score} / ${maxCapabilityScore.TDC} 
+        (${((tdc_score / maxCapabilityScore.TDC) * 100).toFixed(1)}%)<br>
+        <strong>Test Execution Capability:</strong> ${tec_score} / ${maxCapabilityScore.TEC} 
+        (${((tec_score / maxCapabilityScore.TEC) * 100).toFixed(1)}%)<br>
+        <strong>Test Reporting Capability:</strong> ${trc_score} / ${maxCapabilityScore.TRC} 
+        (${((trc_score / maxCapabilityScore.TRC) * 100).toFixed(1)}%)<br>
+        <strong>Test Framework Integration Capability:</strong> ${tfic_score} / ${maxCapabilityScore.TFIC} 
+        (${((tfic_score / maxCapabilityScore.TFIC) * 100).toFixed(1)}%)<br>
+        <strong>Overall TAFM Index:</strong> ${tdmc_score + tdc_score + tec_score + trc_score + tfic_score} / 100
+      </div>
+    `;
+    // Expand and update the modal body
+    const finalResult = document.getElementById('finalResult');
+    finalResult.innerHTML = 
+      "Your TAFM Index is: " + (tdmc_score + tdc_score + tec_score + trc_score + tfic_score) + " out of 100." +
+      detailsHtml;
+  });
 });
-
-
-//next development
-//upon closing modal, clear all selections and goto home page

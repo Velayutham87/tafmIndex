@@ -184,7 +184,7 @@
     </form>
   </div>
 
-  <div class="modal" tabindex="-1" id="tafmIndexModal">
+  <div class="modal fade" id="tafmIndexModal" tabindex="-1" aria-labelledby="tafmIndexModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -192,12 +192,13 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="d-flex align-items-center">
-            <img src="logo/tafmindex-logo.png" alt="TAFM Index Logo" style="height: 50px; margin-right: 20px;">
-            <p class="mb-0" id="finalResult">Here's your TAFM Index score</p>
+          <div class="d-flex align-items-center text-left">
+            <img src="logo/tafmindex-logo.png" alt="TAFM Index Logo" style="height: 80px; margin-right: 16px;">
+            <div class="modal-center mb-3" id="finalResult"></div>
           </div>
         </div>
         <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="btnShowMoreDetails" >Show more details</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
