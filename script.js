@@ -77,13 +77,23 @@ document.addEventListener('DOMContentLoaded', function() {
     tafmModal.show();
   });
 
+  // Enable buttons when any radio is selected
+  const radioButtons = document.querySelectorAll('input[type="radio"]');
+  radioButtons.forEach((radio) => {
+    radio.addEventListener('change', function () {
+      submitButton.disabled = false;
+      clearAllButton.disabled = false;
+    });
+  });
+
   clearAllButton.addEventListener('click', function () {
     // Clear all radio buttons
-    const radioButtons = document.querySelectorAll('input[type="radio"]');
     radioButtons.forEach((radio) => {
       radio.checked = false;
     });
-    
+    // Disable buttons again
+    submitButton.disabled = true;
+    clearAllButton.disabled = true;
     // Navigate to page 1
     document.getElementById('pills-page1-tab').click();
   });
@@ -117,5 +127,14 @@ document.addEventListener('DOMContentLoaded', function() {
     finalResult.innerHTML = 
       "Your TAFM Index is: " + (tdmc_score + tdc_score + tec_score + trc_score + tfic_score) + " out of 100." +
       detailsHtml;
+    // Toggle button text
+   if(showMoreDetails.textContent.trim() === "Show more details") {
+      showMoreDetails.textContent = "Show less details";
+    }
+    else {
+      showMoreDetails.textContent = "Show more details";
+      // Optionally, collapse details if you want
+      finalResult.innerHTML = "Your TAFM Index is: " + (tdmc_score + tdc_score + tec_score + trc_score + tfic_score) + " out of 100.";
+    }
   });
 });
