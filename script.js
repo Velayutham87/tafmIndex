@@ -31,47 +31,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }));
       }
     });
-    var tdmc_score = 0;
-    var tdc_score = 0;
-    var tec_score = 0;
-    var trc_score = 0;
-    var tfic_score = 0;
 
-    results.forEach((result) => {
-      let current_class = result.className;
-      let current_value = parseInt(result.value);
-      switch (current_class) {
-        case "tdmc":
-          tdmc_score += current_value;
-          break;
-        case "tdc":
-          tdc_score += current_value;
-          break;
-        case "tec":
-          tec_score += current_value;
-          break;
-        case "trc":
-          trc_score += current_value;
-          break;
-        case "tfic":
-          tfic_score += current_value;
-          break;
-        default:
-          console.error("Unknown class:", current_class);
+    fetch('https://tafmindex.xyz/api/gettafmindex', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        results: results
+      })
+    }).then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
       }
+      return response.json();
+    })
+    .then(data => {
+      const { tafmIndex, capabilityWiseScores } = data;
+      document.getElementById('finalResult').textContent =
+        "Your TAFM Index is: " + tafmIndex + " out of 100.";
+      capabilityWiseScores = capabilityWiseScores; // Store the scores for later use
+      // Update the modal with the scores 
+    })
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
     });
-
-    document.getElementById('finalResult').textContent =
-      "Your TAFM Index is: " + (tdmc_score + tdc_score + tec_score + trc_score + tfic_score) + " out of 100.";
-    
-    // Store the scores
-    capabilityWiseScores = {
-      tdmc_score,
-      tdc_score,
-      tec_score,
-      trc_score,
-      tfic_score,
-    };
   
     // Show the modal
     tafmModal.show();
