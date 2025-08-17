@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    fetch('https://tafmindex.xyz/api/gettafmindex', {
+    fetch('/api/gettafmindex', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -47,11 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
       return response.json();
     })
     .then(data => {
-      const { tafmIndex, capabilityWiseScores } = data;
+      const { tafmIndex, capabilityWiseScores: scores } = data;
       document.getElementById('finalResult').textContent =
         "Your TAFM Index is: " + tafmIndex + " out of 100.";
-      capabilityWiseScores = capabilityWiseScores; // Store the scores for later use
-      // Update the modal with the scores 
+      capabilityWiseScores = scores; // Store the scores for later use
     })
     .catch(error => {
       console.error('There was a problem with the fetch operation:', error);

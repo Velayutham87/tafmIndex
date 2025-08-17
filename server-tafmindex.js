@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 app.use(express.json());
+app.use(express.static(__dirname));
 const PORT = 3000;
 
 app.post('/api/gettafmindex', (req, res) => {
@@ -46,6 +47,10 @@ let tdmc_score = 0, tdc_score = 0, tec_score = 0, trc_score = 0, tfic_score = 0;
   });    
 })
 
-app.listen(3000, () => {
-  console.log('Server running on port 3000');
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
