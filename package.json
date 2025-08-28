@@ -1,5 +1,12 @@
 {
+  "scripts": {
+    "start": "nodemon server-tafmindex.js"
+  },
   "devDependencies": {
     "prettier": "3.5.3"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
   }
 }
